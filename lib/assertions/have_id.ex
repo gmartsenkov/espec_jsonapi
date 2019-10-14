@@ -5,7 +5,7 @@ defmodule EspecJsonapi.Assertions.HaveId do
 
   defp match(subject, id) do
     {
-      is_map(subject) && subject["data"]["id"] == id,
+      is_map(subject) && subject["id"] == id,
       subject
     }
   end

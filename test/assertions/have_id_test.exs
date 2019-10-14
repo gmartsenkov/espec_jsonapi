@@ -11,31 +11,31 @@ defmodule EspecJsonapi.Assertions.HaveIdTest do
   end
 
   test "match when the subject id matches" do
-    subject = %{ "data" => %{ "id" => 1 } }
+    subject = %{ "id" => 1 }
     assert HaveId.match(subject, 1) == {true, subject}
   end
 
   test "success_message when positive is true" do
-    subject = %{ "data" => %{ "id" => 1 } }
-    expected = "`%{\"data\" => %{\"id\" => 1}}` has an id of 1."
+    subject = %{ "id" => 1 }
+    expected = "`%{\"id\" => 1}` has an id of 1."
     assert HaveId.success_message(subject, 1, nil, true) == expected
   end
 
   test "success_message when positive is false" do
-    subject = %{ "data" => %{ "id" => 1 } }
-    expected = "`%{\"data\" => %{\"id\" => 1}}` does not have an id of 1."
+    subject = %{ "id" => 1 }
+    expected = "`%{\"id\" => 1}` does not have an id of 1."
     assert HaveId.success_message(subject, 1, nil, false) == expected
   end
 
   test "error_message when positive is true" do
-    subject = %{ "data" => %{ "id" => 1 } }
-    expected = "Expected `%{\"data\" => %{\"id\" => 1}}` to have an id of 2."
+    subject = %{ "id" => 1 }
+    expected = "Expected `%{\"id\" => 1}` to have an id of 2."
     assert HaveId.error_message(subject, 2, nil, true) == expected
   end
 
   test "error_message when positive is false" do
-    subject = %{ "data" => %{ "id" => 1 } }
-    expected = "Expected `%{\"data\" => %{\"id\" => 1}}` not to have an id of 2."
+    subject = %{ "id" => 1 }
+    expected = "Expected `%{\"id\" => 1}` not to have an id of 2."
     assert HaveId.error_message(subject, 2, nil, false) == expected
   end
 end
