@@ -17,7 +17,7 @@ defmodule EspecJsonapi.Assertions.HaveAttributesTest do
 
   test "match not all attributes match" do
     subject = %{ "attributes" => %{ "name" => "John", "age" => 17 } }
-    assert HaveAttributes.match(subject, ["name", "age", "pet", "city"]) == {false, ["city", "pet"]}
+    assert HaveAttributes.match(subject, ["name", "age", "pet", "city"]) == {false, ["pet", "city"]}
   end
 
   test "success_message when positive is true" do

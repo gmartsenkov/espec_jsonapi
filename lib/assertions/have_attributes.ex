@@ -3,7 +3,7 @@ defmodule EspecJsonapi.Assertions.HaveAttributes do
 
   use ESpec.Assertions.Interface
 
-  defp match(%{ "attributes" => attributes } = subject, expected_attributes) do
+  defp match(%{ "attributes" => attributes }, expected_attributes) do
     keys = Map.keys(attributes)
     missing_keys = match_keys(keys, expected_attributes)
     {
@@ -19,7 +19,7 @@ defmodule EspecJsonapi.Assertions.HaveAttributes do
     "`#{inspect subject}` #{to} attributes #{attributes}."
   end
 
-  defp error_message(subject, attributes, result, positive) do
+  defp error_message(subject, _attributes, result, positive) do
     to = if positive, do: "to", else: "not to"
     "Expected `#{inspect subject}` #{to} have attributes #{inspect result}."
   end
@@ -29,7 +29,7 @@ defmodule EspecJsonapi.Assertions.HaveAttributes do
     if Enum.member?(keys, head) do
       match_keys(keys, tail, missing_keys)
     else
-      match_keys(keys, tail, [head | missing_keys])
+      match_keys(keys, tail, missing_keys ++ [head])
     end
   end
 
