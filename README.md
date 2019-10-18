@@ -2,7 +2,7 @@
 [![Hex.pm](https://img.shields.io/hexpm/v/espec_jsonapi.svg)](https://hex.pm/packages/espec_jsonapi)
 [![CircleCI](https://circleci.com/gh/gmartsenkov/espec_jsonapi.svg?style=svg)](https://circleci.com/gh/gmartsenkov/espec_jsonapi)
 
-**TODO: Add description**
+**Collection of matchers to help with testing JSONAPI responses with ESpec**
 
 ## Installation
 
