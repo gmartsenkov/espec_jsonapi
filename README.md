@@ -25,8 +25,8 @@ defmodule SomeSpec do
   import EspecJsonapi
   
   it "has the correct type" do
-	response = %{ "data" => %{ "type" => "user" } }
-	expect(response["data"]) |> to have_type("user")
+    response = %{ "data" => %{ "type" => "user" } }
+    expect(response["data"]) |> to have_type("user")
   end
 end
 ```
@@ -36,6 +36,6 @@ end
 * `expect(response["data"]) |> to have_id("1")`
 * `expect(response["data"]) |> to have_type("user")`
 * `expect(response["data"]) |> to have_attribute("name")`
-* `expect(response["data"]) |> to have_attribute(["age", "name", "gender"])`
+* `expect(response["data"]) |> to have_attributes(["age", "name", "gender"])`
 
 
