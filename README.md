@@ -1,4 +1,6 @@
 # EspecJsonapi
+[![Hex.pm](https://img.shields.io/hexpm/v/espec_jsonapi.svg)](https://hex.pm/packages/espec_jsonapi)
+[![CircleCI](https://circleci.com/gh/gmartsenkov/espec_jsonapi.svg?style=svg)](https://circleci.com/gh/gmartsenkov/espec_jsonapi)
 
 **TODO: Add description**
 
@@ -15,7 +17,25 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/espec_jsonapi](https://hexdocs.pm/espec_jsonapi).
+## Example
+
+``` elixir
+defmodule SomeSpec do
+  use ESpec
+  import EspecJsonapi
+  
+  it "has the correct type" do
+	response = %{ "data" => %{ "type" => "user" } }
+	expect(response["data"]) |> to have_type("user")
+  end
+end
+```
+
+## Matchers
+
+* `expect(response["data"]) |> to have_id("1")`
+* `expect(response["data"]) |> to have_type("user")`
+* `expect(response["data"]) |> to have_attribute("name")`
+* `expect(response["data"]) |> to have_attribute(["age", "name", "gender"])`
+
 
