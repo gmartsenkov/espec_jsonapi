@@ -36,7 +36,7 @@ end
 * `expect(response["data"]) |> to(have_id("1"))`
 * `expect(response["data"]) |> to(have_type("user"))`
 * `expect(response["data"]) |> to(have_attribute("name"))`
-* `expect(response["data"]) |> to(have_attribute("name") |> with_data("John"))`
+* `expect(response["data"]) |> to(have_attribute("name") |> with_value("John"))`
 * `expect(response["data"]) |> to(have_attributes(["age", "name", "gender"]))`
 * `expect(response["data"]) |> to(have_relationship("author"))`
 * `expect(response["data"]) |> to(have_relationship("author") |> with_data(%{ "id" => 1, "type" => "author"}))`

@@ -11,5 +11,6 @@ defmodule EspecJsonapi do
   def have_attribute(attribute), do: {HaveAttribute, attribute}
   def have_attributes(attributes), do: {HaveAttributes, attributes}
   def with_data(matcher, data), do: {WithData, {matcher, data}}
+  def with_value(matcher, data), do: {WithData, {matcher, data}}
   def have_relationship(relationship), do: {HaveRelationship, relationship}
 end
