@@ -26,16 +26,17 @@ defmodule SomeSpec do
   
   it "has the correct type" do
     response = %{ "data" => %{ "type" => "user" } }
-    expect(response["data"]) |> to have_type("user")
+    expect(response["data"]) |> to(have_type("user"))
   end
 end
 ```
 
 ## Matchers
 
-* `expect(response["data"]) |> to have_id("1")`
-* `expect(response["data"]) |> to have_type("user")`
-* `expect(response["data"]) |> to have_attribute("name")`
-* `expect(response["data"]) |> to have_attributes(["age", "name", "gender"])`
+* `expect(response["data"]) |> to(have_id("1"))`
+* `expect(response["data"]) |> to(have_type("user"))`
+* `expect(response["data"]) |> to(have_attribute("name"))`
+* `expect(response["data"]) |> to(have_attribute("name") |> with_data("John"))`
+* `expect(response["data"]) |> to(have_attributes(["age", "name", "gender"]))`
 
 
