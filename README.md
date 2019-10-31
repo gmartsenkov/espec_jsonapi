@@ -40,6 +40,8 @@ end
 * `expect(response["data"]) |> to(have_attributes(["age", "name", "gender"]))`
 * `expect(response["data"]) |> to(have_relationship("author"))`
 * `expect(response["data"]) |> to(have_relationship("author") |> with_data(%{ "id" => 1, "type" => "author"}))`
+* `expect(response["data"]) |> to(have_relationships(["author", "owner", "comments"]))`
+
 
 
 
