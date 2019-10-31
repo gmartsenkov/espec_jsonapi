@@ -41,7 +41,8 @@ end
 * `expect(response["data"]) |> to(have_relationship("author"))`
 * `expect(response["data"]) |> to(have_relationship("author") |> with_data(%{ "id" => 1, "type" => "author"}))`
 * `expect(response["data"]) |> to(have_relationships(["author", "owner", "comments"]))`
-
+* `expect(response["data"]) |> to(have_link("self"))`
+* `expect(response["data"]) |> to(have_link("self") |> with_value("http://api.example.com/users/12"))`
 
 
 
