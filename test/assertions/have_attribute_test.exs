@@ -12,7 +12,7 @@ defmodule EspecJsonapi.Assertions.HaveAttributeTest do
 
   test "match when the subject id matches" do
     subject = %{ "attributes" => %{ "name" => "John", "age" => 17 } }
-    assert HaveAttribute.match(subject, "name") == {true, subject}
+    assert HaveAttribute.match(subject, "name") == {true, "John"}
   end
 
   test "success_message when positive is true" do
