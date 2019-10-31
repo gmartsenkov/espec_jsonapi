@@ -7,17 +7,23 @@ defmodule EspecJsonapi.Assertions.WithData do
     }
   end
 
-  def success_message(subject, { _matcher, arg }, { _result, data }, positive) do
+  def success_message(subject, { matcher, arg }, { _result, data }, positive) do
     to = if positive, do: "has", else: "does not have"
-    "`#{inspect subject}` #{to} attribute #{arg} with data #{data}."
+    "`#{inspect subject}` #{to} #{matcher_type(matcher)} #{arg} with data #{data}."
   end
 
-  def error_message(subject, {{_matcher, arg}, expected}, {true, data}, positive) do
+  def error_message(subject, {{matcher, arg}, expected}, {true, data}, positive) do
     to = if positive, do: "to", else: "not to"
-    "Expected `#{inspect subject}` #{to} have attribute #{arg} with data #{expected} but is #{data}."
+    "Expected `#{inspect subject}` #{to} have #{matcher_type(matcher)} #{arg} with data #{expected} but is #{data}."
   end
 
   def error_message(subject, {{matcher, arg}, _expected}, {false, data}, positive) do
     matcher.error_message(subject, arg, data, positive)
+  end
+
+  def matcher_type(matcher) do
+    Regex.run(~r/Have(.*)/, "#{matcher}")
+    |> List.last
+    |> String.downcase
   end
 end
