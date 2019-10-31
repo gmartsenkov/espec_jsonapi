@@ -43,6 +43,8 @@ end
 * `expect(response["data"]) |> to(have_relationships(["author", "owner", "comments"]))`
 * `expect(response["data"]) |> to(have_link("self"))`
 * `expect(response["data"]) |> to(have_link("self") |> with_value("http://api.example.com/users/12"))`
+* `expect(response["data"]) |> to(have_links(["self", "author"]))`
+
 
 
 
