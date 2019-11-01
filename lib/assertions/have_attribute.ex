@@ -1,7 +1,7 @@
 defmodule EspecJsonapi.Assertions.HaveAttribute do
   use ESpec.Assertions.Interface
 
-  def match(%{ "attributes" => attributes } = subject, attribute) do
+  def match(%{ "attributes" => attributes } = _subject, attribute) do
     keys = Map.keys(attributes)
     {
       Enum.member?(keys, attribute),

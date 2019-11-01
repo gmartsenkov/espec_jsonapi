@@ -1,7 +1,7 @@
 defmodule EspecJsonapi.Assertions.HaveRelationship do
   use ESpec.Assertions.Interface
 
-  def match(%{ "relationships" => relationships } = subject, relationship) do
+  def match(%{ "relationships" => relationships } = _subject, relationship) do
     keys = Map.keys(relationships)
     {
       Enum.member?(keys, relationship),
