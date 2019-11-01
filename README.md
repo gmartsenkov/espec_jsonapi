@@ -12,7 +12,7 @@ by adding `espec_jsonapi` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:espec_jsonapi, "~> 0.1.0"}
+    {:espec_jsonapi, "~> 1.0.0"}
   ]
 end
 ```
