@@ -1,4 +1,6 @@
 defmodule EspecJsonapi.Assertions.WithData do
+  use ESpec.Assertions.Interface
+
   def match(subject, { { matcher, args }, expected }) do
     { result, data } = matcher.match(subject, args)
     {
@@ -7,9 +9,9 @@ defmodule EspecJsonapi.Assertions.WithData do
     }
   end
 
-  def success_message(subject, { matcher, arg }, { _result, data }, positive) do
+  def success_message(subject, { { matcher, args}, _arg }, { _result, data }, positive) do
     to = if positive, do: "has", else: "does not have"
-    "`#{inspect subject}` #{to} #{matcher_type(matcher)} #{arg} with data #{data}."
+    "`#{inspect subject}` #{to} #{matcher_type(matcher)} #{args} with data #{data}."
   end
 
   def error_message(subject, {{matcher, arg}, expected}, {true, data}, positive) do

@@ -24,7 +24,7 @@ defmodule EspecJsonapi.Assertions.WithDataTest do
 
   test "success_message when the name matches Jon" do
     expected = "`%{\"attributes\" => %{\"name\" => \"Jon\"}}` has attribute name with data Jon."
-    assert WithData.success_message(subject(), matcher(), {true, "Jon"}, true) == expected
+    assert WithData.success_message(subject(), { matcher(), "name" }, {true, "Jon"}, true) == expected
   end
 
   test "error_message when attribute exist but data does not match" do
